@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Wordle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Theme configurations for the Keyboard Buttons. -->
+    <style name="KeyboardButtonStyle"
+        parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">10pt</item>
+        <item name="android:backgroundTint">@color/light_grey</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">1dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:onClick">onKeyboardClick</item>
+    </style>
+</resources>

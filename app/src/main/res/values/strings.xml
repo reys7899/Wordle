@@ -1,0 +1,62 @@
+<!--
+author: Rey Sanayei
+description: XML file for all the Strings used in the app.
+-->
+<resources>
+    <string name="app_name">Wordle</string>
+    <string name="title_name">Wordle</string>
+    <string name="help_title_str">HOW TO PLAY</string>
+    <string name="help_body_1_str">Guess the WORDLE in six tries.</string>
+    <string name="help_body_2_str">Each guess must be a valid five-letter word. Hit the enter button to submit.</string>
+    <string name="help_body_3_str">After each guess, the color of the tiles will change to show how close your guess was to the word.</string>
+    <string name="help_example_1_txt_str">The letter W is in the word and in the correct spot.</string>
+    <string name="help_example_2_txt_str">The letter I is in the word but in the wrong spot.</string>
+    <string name="help_example_3_txt_str">The letter U is not in the word in any spot.</string>
+    <string name="help_header_1_str">Examples</string>
+    <string name="settings_title_str">SETTINGS</string>
+    <string name="settings_header_1_str">Profile</string>
+    <string name="guest">Guest</string>
+    <string name="change_name_btn_str">CHANGE NAME</string>
+    <string name="browse_btn_str">BROWSE GALLERY</string>
+    <string name="settings_sub_title_3_str">Dark Mode</string>
+    <string name="settings_sub_title_2_str">Profile Picture</string>
+    <string name="settings_sub_title_1_str">Username</string>
+    <string name="settings_header_2_str">Theme</string>
+    <string name="camera_btn_str">TAKE PICTURE</string>
+    <string name="replay_btn_str">PLAY AGAIN</string>
+    <string name="share_btn_str">SHARE</string>
+    <string name="win_distribution_header_str">GUESS DISTRIBUTION</string>
+    <string name="stats_title_str">STATISTICS</string>
+    <string name="played_stat_sub_str">Played</string>
+    <string name="win_stat_sub_str">Win %</string>
+    <string name="cur_streak_stat_sub_str">Current Streak</string>
+    <string name="max_streak_stat_sub_str">Max Streak</string>
+    <string name="wins_1_str">1</string>
+    <string name="wins_2_str">2</string>
+    <string name="wins_3_str">3</string>
+    <string name="wins_4_str">4</string>
+    <string name="wins_5_str">5</string>
+    <string name="wins_6_str">6</string>
+    <string name="close_button_description">CLOSE</string>
+    <string name="profile_picture_description">PROFILE PICTURE</string>
+    <string name="ENTER_button_str">ENTER</string>
+    <string name="DEL_button_str">DEL</string>
+    <string name="user_info_key">USER_INFO</string>
+    <string name="saved_user_id_key">USER_ID</string>
+    <string name="saved_username_key">USERNAME</string>
+    <string name="Send_User_data">USER_DATA</string>
+    <string name="rank_title">Top Streaks</string>
+    <string name="authority">edu.arizona.android.wordle</string>
+    <string name="profile_picture_path">PICTURE</string>
+    <string name="profile_picte_source">SOURCE</string>
+    <string name="camura_roll">CAMURA_ROLL</string>
+
+
+    <string name="not_there">NA</string>
+    <string name="new_id_url">http://157.245.115.179/newId</string>
+    <string name="get_type">GET</string>
+    <string name="post_score_url">http://157.245.115.179/postscore</string>
+    <string name="post_type">POST</string>
+    <string name="get_highscores">HIGHSCORE</string>
+    <string name="get_highscores_url">http://157.245.115.179/highscores</string>
+</resources>

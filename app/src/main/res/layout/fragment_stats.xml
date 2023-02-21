@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+author: Rey Sanayei
+description: XML file for the Stats fragment, which displays the player's performance so far,
+as well as a breakdown of their past wins. This fragment also allows the user to share their game
+results when over, and play another game after finishing the current one.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="350dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".StatsFragment"
+    android:background="@color/background_color">
+
+    <View
+        android:id="@+id/guidelineC"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp"
+        android:background="@color/light_grey"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wins_6" />
+
+    <View
+        android:id="@+id/guidelineB"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="5dp"
+        android:background="@color/light_grey"
+        app:layout_constraintBottom_toTopOf="@id/win_distribution_header"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cur_streak_stat_sub" />
+
+    <View
+        android:id="@+id/guidelineTop"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_grey"
+        app:layout_constraintBottom_toTopOf="@id/played_stat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stats_title" />
+
+    <TextView
+        android:id="@+id/stats_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stats_title_str"
+        android:textColor="@color/text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginVertical="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guidelineTop"/>
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="5dp"
+        android:src="@drawable/close"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/close_button_description" />
+
+
+    <TextView
+        android:id="@+id/played_stat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        app:layout_constraintBottom_toTopOf="@id/played_stat_sub"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/win_stat"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+    <TextView
+        android:id="@+id/played_stat_sub"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="@string/played_stat_sub_str"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@id/played_stat"
+        app:layout_constraintRight_toRightOf="@id/played_stat"
+        app:layout_constraintTop_toBottomOf="@id/played_stat" />
+
+    <TextView
+        android:id="@+id/win_stat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/win_stat_sub"
+        app:layout_constraintLeft_toRightOf="@id/played_stat"
+        app:layout_constraintRight_toLeftOf="@id/cur_streak_stat"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+    <TextView
+        android:id="@+id/win_stat_sub"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="@string/win_stat_sub_str"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@id/win_stat"
+        app:layout_constraintRight_toRightOf="@id/win_stat"
+        app:layout_constraintTop_toBottomOf="@id/win_stat" />
+
+    <TextView
+        android:id="@+id/cur_streak_stat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/cur_streak_stat_sub"
+        app:layout_constraintLeft_toRightOf="@id/win_stat"
+        app:layout_constraintRight_toLeftOf="@id/max_streak_stat"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+    <TextView
+        android:id="@+id/cur_streak_stat_sub"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="@string/cur_streak_stat_sub_str"
+        android:textSize="16sp"
+        android:textColor="@color/text_color"
+
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@id/cur_streak_stat"
+        app:layout_constraintRight_toRightOf="@id/cur_streak_stat"
+        app:layout_constraintTop_toBottomOf="@id/cur_streak_stat" />
+
+    <TextView
+        android:id="@+id/max_streak_stat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/max_streak_stat_sub"
+        app:layout_constraintLeft_toRightOf="@id/cur_streak_stat"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+    <TextView
+        android:id="@+id/max_streak_stat_sub"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="@string/max_streak_stat_sub_str"
+        android:textColor="@color/text_color"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="@id/max_streak_stat"
+        app:layout_constraintRight_toRightOf="@id/max_streak_stat"
+        app:layout_constraintTop_toBottomOf="@id/max_streak_stat" />
+
+    <Button
+        android:id="@+id/replay_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/gold"
+        android:textColor="@color/white"
+        android:text="@string/replay_btn_str"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/share_btn"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/share_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/share_btn_str"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/replay_btn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/win_distribution_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/win_distribution_header_str"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginVertical="20dp"
+        app:layout_constraintTop_toBottomOf="@id/guidelineB"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <TextView
+        android:id="@+id/wins_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wins_1_str"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:layout_marginStart="50dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/win_distribution_header"
+        app:layout_constraintBottom_toTopOf="@id/wins_2"/>
+    <TextView
+        android:id="@+id/wins_1_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:layout_marginStart="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toRightOf="@id/wins_1"
+        app:layout_constraintTop_toBottomOf="@id/win_distribution_header"
+        app:layout_constraintBottom_toTopOf="@id/wins_2_data"/>
+    <TextView
+        android:id="@+id/wins_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wins_2_str"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wins_1"
+        app:layout_constraintBottom_toTopOf="@id/wins_3"/>
+    <TextView
+        android:id="@+id/wins_2_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:layout_marginStart="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toRightOf="@id/wins_2"
+        app:layout_constraintTop_toBottomOf="@id/wins_1_data"
+        app:layout_constraintBottom_toTopOf="@id/wins_3_data"/>
+    <TextView
+        android:id="@+id/wins_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wins_3_str"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wins_2"
+        app:layout_constraintBottom_toTopOf="@id/wins_4"/>
+    <TextView
+        android:id="@+id/wins_3_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:layout_marginStart="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toRightOf="@id/wins_3"
+        app:layout_constraintTop_toBottomOf="@id/wins_2_data"
+        app:layout_constraintBottom_toTopOf="@id/wins_4_data"/>
+    <TextView
+        android:id="@+id/wins_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wins_4_str"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wins_3"
+        app:layout_constraintBottom_toTopOf="@id/wins_5"/>
+    <TextView
+        android:id="@+id/wins_4_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:layout_marginStart="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toRightOf="@id/wins_4"
+        app:layout_constraintTop_toBottomOf="@id/wins_3_data"
+        app:layout_constraintBottom_toTopOf="@id/wins_5_data"/>
+    <TextView
+        android:id="@+id/wins_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wins_5_str"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wins_4"
+        app:layout_constraintBottom_toTopOf="@id/wins_6"/>
+    <TextView
+        android:id="@+id/wins_5_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:layout_marginStart="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toRightOf="@id/wins_5"
+        app:layout_constraintTop_toBottomOf="@id/wins_4_data"
+        app:layout_constraintBottom_toTopOf="@id/wins_6_data"/>
+    <TextView
+        android:id="@+id/wins_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wins_6_str"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        android:layout_marginStart="50dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wins_5"
+        app:layout_constraintBottom_toTopOf="@id/guidelineC"/>
+    <TextView
+        android:id="@+id/wins_6_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/text_color"
+        android:layout_marginStart="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toRightOf="@id/wins_6"
+        app:layout_constraintTop_toBottomOf="@id/wins_5_data"
+        app:layout_constraintBottom_toTopOf="@id/guidelineC"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
